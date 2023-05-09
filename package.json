@@ -1,0 +1,31 @@
+{
+  "name": "object_arrays",
+  "version": "1.0.0",
+  "description": "reto UBITS para repazar conceptos de Arrays y Objectos en Javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.html",
+    "test": "jest",
+    "test-arrays": "jest -t 'testing reto de Arrays'",
+    "test-objects": "jest -t 'testing reto de Objects'"
+  },
+  "keywords": [
+    "javascript",
+    "Arrays",
+    "Objects",
+    "Ubits"
+  ],
+  "author": "Cristian Buitrago",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
+    "@babel/preset-env": "^7.21.5",
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "core-js": "^3.30.1"
+  }
+}
