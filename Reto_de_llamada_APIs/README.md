@@ -127,7 +127,7 @@ obtenerRegionPokemon(id)
 
 Ten en cuenta que debes crear una **función para resolver cada uno de los puntos**.
 
-si quieres realizar pruebas mientras resuelves los retos dentro de la carpeta principal de este repositorio `Reto_Object_Arrays` puedes ir a la carpeta del reto (en tu shell escribe `cd Reto_de_llamada_APIs`) y luego correr el comando `node arrays.js` para ejecutar el código que tengas en tu reto.
+si quieres realizar pruebas mientras resuelves los retos dentro de la carpeta principal de este repositorio `Reto_APIs_DOM` puedes ir a la carpeta del reto (en tu shell escribe `cd Reto_de_llamada_APIs`) y luego correr el comando `node api.js` para ejecutar el código que tengas en tu reto.
 
 **NO OLVIDES LEER ATENTAMENTE LA DOCUMENTACIÓN DE LA API QUE VAMOS A CONSUMIR ESTA NOS DIRÁ COMO EXPONEN SU INFORMACIÓN Y COMO PODEMOS ACCEDER A ELLA**
 
