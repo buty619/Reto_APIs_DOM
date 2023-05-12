@@ -46,17 +46,20 @@ npm install
 
 ### 🗒 Estructura del reto
 
-En este repositorio encontraras dos carpetas, la primera [Reto_de_Arrays](https://github.com/buty619/Reto_Object_Arrays/tree/main/Reto_de_Arrays) contiene 3 archivos:
+En este repositorio encontraras dos carpetas, la primera [Reto_de_llamada_APIs](https://github.com/buty619/Reto_APIs_DOM/tree/main/Reto_de_llamada_APIs) contiene 3 archivos:
 
 - **README.md**: este archivo contiene las instrucciones para resolver el reto por favor léelo cuidadosamente.
 - **api.js**: en este archivo colocaras el código con el cual resuelvas el reto, dentro del archivo encontraras algunas pistas e instrucciones.
-- **api.test.js**: este archivo código es el que prueba que hayas resuelto el reto correctamente (no te preocupes por entender este código mas adelante podrás estudiar el concepto de test unitarios).
+- **api.test.js**: este archivo es el que prueba que hayas resuelto el reto correctamente (no te preocupes por entender este código mas adelante podrás estudiar el concepto de test unitarios).
 
-En la segunda capeta [Reto_de_Objects](https://github.com/buty619/Reto_Object_Arrays/tree/main/Reto_de_Objects) contiene 3 archivos:
+En la segunda capeta [Reto_de_manipulacion_DOM](https://github.com/buty619/Reto_APIs_DOM/tree/main/Reto_de_manipulacion_DOM) contiene varias carpetas y archivos:
 
 - **README.md**: este archivo contiene las instrucciones para resolver el reto por favor léelo cuidadosamente.
-- **objects.js**: en este archivo colocaras el código con el cual resuelvas el reto, dentro del archivo encontraras algunas pistas e instrucciones.
-- **objects.test.js**: este archivo código es el que prueba que hayas resuelto el reto correctamente (no te preocupes por entender este código mas adelante podrás estudiar el concepto de test unitarios).
+- 📁 **css**: contiene el archivo con los estilos de nuestra aplicación no realizaremos ninguna modificación en este archivo.
+- 📁 **img**: contiene assets que usamos en nuestro reto no realizaremos ninguna modificación en este folder.
+- 📁 **js**: en este archivo colocaras el código con el cual resuelvas el reto, dentro del archivo encontraras algunas pistas e instrucciones.
+- **dom.test.js**: este archivo es el que prueba que hayas resuelto el reto correctamente (no te preocupes por entender este código mas adelante podrás estudiar el concepto de test unitarios).
+- **index.html**: este archivo contiene la estructura del DOM el cual vamos a manipular no realizaremos ninguna modificación en este archivo.
 
 ademas de estas carpetas podrás ver otros archivos como:
 
@@ -70,16 +73,16 @@ no te preocupes por estos archivos ellos realizan un trabajo de configuración d
 
 luego que hayas leído las instrucciones y hayas puesto a prueba todo tu conocimiento la manera correcta de saber si resolviste el reto es escribiendo estos comandos en tu shell:
 
-Para el reto de Arrays, escribe:
+Para el reto de llamas a APIs, escribe:
 
 ```bash
-npm run test-apis
+npm run test-api
 ```
 
-Para el reto de Objetos, escribe:
+Para el reto de manipulación del DOM, escribe:
 
 ```bash
-npm run test-objects
+npm run test-dom
 ```
 
 para ambos casos se correrán los test de tu código donde si tienes correctamente solucionado podrás ver un mensaje como:
