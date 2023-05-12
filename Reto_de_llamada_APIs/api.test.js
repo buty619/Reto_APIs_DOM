@@ -1,17 +1,17 @@
+import "isomorphic-fetch";
+
 import {
-  costoTotal,
-  promedio,
-  carrosHibridos,
-  carroMasCaro,
-  nuevoCarro,
-  eliminarCarro,
-} from "./arrays";
-import db from "./CarDataBase";
+  obtenerPokemon,
+  obtenerTodosPokemones,
+  obtenerTipo,
+  obtenerHabilidadPokemon,
+  obtenerRegionPokemon,
+} from "./api";
 
 const successPrintStyle = "\x1b[1m\x1b[3m\x1b[48;5;34m\x1b[38;5;15m";
 const failPrintStyle = "\x1b[1m\x1b[3m\x1b[48;5;208m\x1b[38;5;15m";
 
-describe("testing reto de Arrays", () => {
+describe("testing reto de APIs", () => {
   let testStatus = false;
   let passTests = 0;
   let failedTest = 0;
@@ -28,7 +28,7 @@ describe("testing reto de Arrays", () => {
 
   afterAll(() => {
     const success =
-      "🚀🚀 EXCELENTE TRABAJO COMPLETASTE LA PRUEBA DE MANERA SATISFACTORIA ESTE ES EL CÓDIGO SECRETO: UBITSJSAR13524 🚀🚀 \x1b[0m";
+      "🚀🚀 EXCELENTE TRABAJO COMPLETASTE LA PRUEBA DE MANERA SATISFACTORIA ESTE ES EL CÓDIGO SECRETO: UBITSJSAPI675641 🚀🚀 \x1b[0m";
     const error =
       "❌❌ AUN NO HAS SUPERADO LA PRUEBA POR FAVOR VERIFICA QUE CUMPLAS CON TODOS LOS CRITERIOS SOLICITADOS ❌❌ \x1b[0m";
     if (failedTest > 0) {
@@ -38,61 +38,83 @@ describe("testing reto de Arrays", () => {
     }
   });
 
-  it("1. Obtener el costo total de los carros en inventario", () => {
-    const output = 5020295;
-    expect(costoTotal(db)).toBe(output);
+  it("1. Obtener información de un Pokemón", async () => {
+    const {
+      nombre: inputName,
+      id: inputId,
+      tipos: inputTypes,
+      imagen: inputImage,
+      base_experience: inputBaseExperience,
+    } = await obtenerPokemon(65);
+    const outputName = "alakazam";
+    const outputId = 65;
+    const outBaseExperience = 250;
+    expect(inputName).toBe(outputName);
+    expect(inputId).toBe(outputId);
+    expect(inputTypes.length).toBe(1);
+    expect(inputImage).toBe(
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+    );
+    expect(inputBaseExperience).not.toBe(outBaseExperience);
     testStatus = true;
   });
-  it("2. Obtener el promedio de los precios de los carros pares", () => {
-    const output = 47548.9;
-    expect(promedio(db)).toBe(output);
+
+  it("2. Obtener información de los primeros 20 Pokemón", async () => {
+    const result = await obtenerTodosPokemones();
+    const outputName1 = "charizard";
+    const outputName2 = "blastoise";
+    const outputName3 = "rattata";
+    const outputUrl1 = "https://pokeapi.co/api/v2/pokemon/1/";
+    const outputUrl2 = "https://pokeapi.co/api/v2/pokemon/12/";
+    const outputUrl3 = "https://pokeapi.co/api/v2/pokemon/17/";
+    expect(result[5].name).toBe(outputName1);
+    expect(result[8].name).toBe(outputName2);
+    expect(result[18].name).toBe(outputName3);
+    expect(result[0].url).toBe(outputUrl1);
+    expect(result[11].url).toBe(outputUrl2);
+    expect(result[16].url).toBe(outputUrl3);
     testStatus = true;
   });
-  it("3. Obtener los carros Híbridos", () => {
-    const output = 24;
-    expect(carrosHibridos(db).length).toBe(output);
+
+  it("3. Obtener información del tipo de Pokemón", async () => {
+    const result = await obtenerTipo("dragon");
+    const pokemonLength = 102;
+
+    expect(result[24].name).toBe("zweilous");
+    expect(result[45].name).toBe("applin");
+    expect(result[88].name).toBe("sliggoo-hisui");
+    expect(result[4].url).toBe("https://pokeapi.co/api/v2/pokemon/329/");
+    expect(result[100].url).toBe("https://pokeapi.co/api/v2/pokemon/10270/");
+    expect(result[21].url).toBe("https://pokeapi.co/api/v2/pokemon/612/");
+    expect(result.length).toBe(pokemonLength);
     testStatus = true;
   });
-  it("4. Obtener el producto más caro", () => {
-    const output = {
-      car_name: "Mercedes-Benz",
-      cost: 98089,
-      model: "Sedan",
-      manufacturer: "Honda",
-      color: "Red",
-      num_doors: 2,
-      cylinder_capacity: 5307,
-      fuel_type: "Hybrid",
-      transmission: "Manual",
-      drive_type: "Rear-wheel drive",
-      horsepower: 787,
-    };
-    expect(carroMasCaro(db).car_name).toBe(output.car_name);
-    expect(carroMasCaro(db).cost).toBe(output.cost);
-    expect(carroMasCaro(db).color).toBe(output.color);
-    expect(carroMasCaro(db).cylinder_capacity).toBe(output.cylinder_capacity);
-    expect(carroMasCaro(db).drive_type).toBe(output.drive_type);
+
+  it("4. Obtener información de la habilidad Pokemón", async () => {
+    const result = await obtenerHabilidadPokemon(30);
+    const name = "natural-cure";
+    const id = 30;
+
+    expect(result.nombre).toBe(name);
+    expect(result.id).toBe(id);
+    expect(result.pokemones[12]).toBe("shaymin-land");
+    expect(result.pokemones[7]).toBe("swablu");
+    expect(result.pokemones[18]).toBe("pawmot");
+    expect(result.pokemones.length).toBe(19);
     testStatus = true;
   });
-  it("5. Agregar un nuevo producto", () => {
-    const output = 101;
-    expect(nuevoCarro(db).length).toBe(output);
-    expect(nuevoCarro(db)[100].car_name).toBeDefined();
-    expect(nuevoCarro(db)[100].cost).toBeDefined();
-    expect(nuevoCarro(db)[100].model).toBeDefined();
-    expect(nuevoCarro(db)[100].manufacturer).toBeDefined();
-    expect(nuevoCarro(db)[100].num_doors).toBeDefined();
-    expect(nuevoCarro(db)[100].cylinder_capacity).toBeDefined();
-    expect(nuevoCarro(db)[100].fuel_type).toBeDefined();
-    expect(nuevoCarro(db)[100].transmission).toBeDefined();
-    expect(nuevoCarro(db)[100].drive_type).toBeDefined();
-    expect(nuevoCarro(db)[100].horsepower).toBeDefined();
-    expect(nuevoCarro(db)[100].color).toBeDefined();
-    testStatus = true;
-  });
-  it("6. Eliminar el carro mas económico", () => {
-    const output = 99;
-    expect(eliminarCarro(db).length).toBe(output);
+
+  it("5. Obtener información de la region de un Pokemón:", async () => {
+    const result = await obtenerRegionPokemon(150);
+    const name = "mewtwo";
+    const id = 150;
+
+    expect(result.nombre).toBe(name);
+    expect(result.id).toBe(id);
+    expect(result.imagen).toBe(
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+    );
+    expect(result.region[0]).toBe("cerulean-cave-b1f");
     testStatus = true;
   });
 });
