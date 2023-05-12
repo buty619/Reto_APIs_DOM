@@ -87,7 +87,15 @@ npm run test-dom
 
 para ambos casos se correrán los test de tu código donde si tienes correctamente solucionado podrás ver un mensaje como:
 
-pero si por el contrario tienes algún error veras mensaje como:
+<p align="center">
+  <img src="./img/m1.png"/>
+</p>
+
+si por el contrario tienes algún error verás un mensaje como:
+
+<p align="center">
+  <img src="./img/m2.png"/>
+</p>
 
 en caso de completar la prueba exitosamente podrás ver el mensaje mencionado el cual expondrá un código secreto el cual podrás usar para validar la solución en nuestra plataforma UBITS.
 
