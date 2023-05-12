@@ -19,7 +19,7 @@ http://127.0.0.1:8080/
 
 en el siguiente video podrás ver comportamiento esperado al momento de correr la pagina web:
 
-![video](./img/iniciando%20servidor.mov)
+![video](./img/iniciando-servidor.gif)
 
 ## 📈 Funciones a implementar:
 
