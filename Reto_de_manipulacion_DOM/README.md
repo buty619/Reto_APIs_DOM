@@ -43,4 +43,10 @@ Ahora se debe crear otra función llamada `renderPokemon` que usa la función an
 
 Por ultimo, se deben agregan tres event listeners, uno para el formulario de búsqueda (`form - event: submit`, recuerda agregar el `event.preventDefault()`, el submit de este formulario) y otro para los botones de navegación entre los pokemons (`buttonPrev - event: click`, `buttonNext - event: click`). El primero se activa al ingresar el nombre del pokemon deseado y presionar "enter", este debe ejecuta la función `renderPokemon` con el valor ingresado por el usuario. Mientras que en los botones de navegación (`buttonPrev`, `buttonNext`), se puede avanzar o retroceder en la lista de pokemons mostrados en la página usando la función `renderPokemon`.
 
+## ✅ Video Final:
+
+para finalizar te dejo un video del comportamiento esperado al final el reto:
+
+![final](./img/video.gif)
+
 ### 🥳 ¡Buena suerte! 🥳
